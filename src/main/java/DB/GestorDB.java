@@ -2,6 +2,8 @@ package DB;
 
 import java.util.ArrayList;
 
+
+
 public class GestorDB {
 
     public boolean conectarDB(){
