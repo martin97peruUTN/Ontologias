@@ -21,6 +21,5 @@ dependencies {
     compile "com.stardog.stark.query:stardog-stark-query-api:7.1.2"
     compile "com.stardog.stark.io:stardog-stark-io-api:7.1.2"
     compile "com.stardog.stark.query.io:stardog-stark-query-io:7.1.2"
-    //estas son sacadas de la diapo, falta la ultima que da un error que no entiendo
-    //compile "com.complexible.stardog:client-http:7.1.2@pom”
+    compile "com.complexible.stardog:client-http:7.1.2@pom"
 }
