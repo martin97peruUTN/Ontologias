@@ -17,7 +17,7 @@ public class Consulta extends JPanel {
     public Consulta(Principal ventana2) {
         this.ventana=ventana2;
         ventana.setContentPane(this);
-        ventana.setPreferredSize(new Dimension(600, 300));
+        ventana.setPreferredSize(new Dimension(600, 370));
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setBackground(new Color(230, 230, 250));
         this.setLayout(null);
@@ -32,29 +32,39 @@ public class Consulta extends JPanel {
         promedioLbl.setBounds(20, 50, 380, 45);
         this.add(promedioLbl);
 
-        JLabel materiasLbl = new JLabel("Minimo de materias cursadas el año anterior");
-        materiasLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
-        materiasLbl.setBounds(20, 120, 380, 45);
-        this.add(materiasLbl);
-
         JTextField promedioTxt = new JTextField();
         promedioTxt.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
         promedioTxt.setBounds(20,85,380,25);
         this.add(promedioTxt);
+
+        JLabel materiasLbl = new JLabel("Minimo de materias cursadas el año anterior");
+        materiasLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
+        materiasLbl.setBounds(20, 120, 380, 45);
+        this.add(materiasLbl);
 
         JTextField materiasTxt = new JTextField();
         materiasTxt.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
         materiasTxt.setBounds(20,155,380,25);
         this.add(materiasTxt);
 
+        JLabel anioLbl = new JLabel("Año de la pasantia");
+        anioLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
+        anioLbl.setBounds(20, 190, 380, 45);
+        this.add(anioLbl);
+
+        JTextField anioTxt = new JTextField();
+        anioTxt.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
+        anioTxt.setBounds(20,225,380,25);
+        this.add(anioTxt);
+
         JButton btnSalir = new JButton("Salir");
         btnSalir.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
-        btnSalir.setBounds(20, 215, 80, 30);
+        btnSalir.setBounds(20, 280, 80, 30);
         this.add(btnSalir);
 
         JButton btnContinuar = new JButton("Continuar");
         btnContinuar.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
-        btnContinuar.setBounds(465, 215, 100, 30);
+        btnContinuar.setBounds(465, 280, 100, 30);
         this.add(btnContinuar);
 
         btnSalir.addActionListener(new ActionListener() {
