@@ -9,18 +9,31 @@ import java.nio.file.Paths;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class GestorDB {
+import com.complexible.common.rdf.query.resultio.TextTableQueryResultWriter;
+import com.complexible.stardog.Stardog;
+import com.complexible.stardog.api.Connection;
+import com.complexible.stardog.api.ConnectionConfiguration;
+import com.complexible.stardog.api.Getter;
+import com.complexible.stardog.api.SelectQuery;
+import com.complexible.stardog.api.admin.AdminConnection;
+import com.complexible.stardog.api.admin.AdminConnectionConfiguration;
 
-    public boolean conectarDB(){
-        //No se que devuelve todavia
-        //TODO conectarse a la DB
-        return true;
-    }
+import com.stardog.stark.IRI;
+import com.stardog.stark.Statement;
+import com.stardog.stark.Values;
+import com.stardog.stark.io.RDFFormats;
+import com.stardog.stark.io.RDFWriters;
+import com.stardog.stark.query.SelectQueryResult;
+import com.stardog.stark.query.io.QueryResultFormats;
+import com.stardog.stark.query.io.QueryResultWriters;
+import com.stardog.stark.vocabs.RDF;
+
+public class GestorDB {
 
     public boolean consultarDB(String promedio, String materias, String anio){
         //No se que devuelve todavia
 
-        //TODO hacer la consulta
+        //TODO terminar la consulta con los otros Strings
         String consulta="SELECT DISTINCT ?x ?lib ?med\n" +
                 "WHERE{\n" +
                 "  ?x a :PostulanteABecaAdmisible.\n" +
@@ -31,6 +44,24 @@ public class GestorDB {
                 "  FILTER (?anioConv = "+anio+").\n" +
                 "}\n" +
                 "ORDER BY DESC (?med)";
+
+        //Esto es todo de prueba nomas
+        Stardog aStardog = Stardog.builder().create();
+        try{
+            try (AdminConnection aAdminConnection = AdminConnectionConfiguration.toEmbeddedServer().credentials("admin", "admin").connect()) {
+                aAdminConnection.disk("testConnectionAPI").create();
+                try (Connection aConn = ConnectionConfiguration.to("testConnectionAPI").credentials("admin", "admin").connect()) {
+
+                    aConn.begin();
+
+
+                }
+            }
+        }
+        finally {
+            aStardog.shutdown();
+        }
+
         return true;
     }
 

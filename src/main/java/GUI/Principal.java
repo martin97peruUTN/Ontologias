@@ -5,7 +5,7 @@ import java.awt.*;
 import DB.*;
 
 public class Principal extends JFrame {
-    GestorDB gestor = new GestorDB();
+    private GestorDB gestor = new GestorDB();
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -23,5 +23,13 @@ public class Principal extends JFrame {
         this.setContentPane(new Consulta(this));
         this.pack();
 
+    }
+
+    public GestorDB getGestor() {
+        return gestor;
+    }
+
+    public void setGestor(GestorDB gestor) {
+        this.gestor = gestor;
     }
 }
