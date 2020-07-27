@@ -45,22 +45,22 @@ public class GestorDB {
                 "}\n" +
                 "ORDER BY DESC (?med)";
 
-        //Esto es todo de prueba nomas
-        Stardog aStardog = Stardog.builder().create();
-        try{
-            try (AdminConnection aAdminConnection = AdminConnectionConfiguration.toEmbeddedServer().credentials("admin", "admin").connect()) {
-                aAdminConnection.disk("testConnectionAPI").create();
-                try (Connection aConn = ConnectionConfiguration.to("testConnectionAPI").credentials("admin", "admin").connect()) {
-
-                    aConn.begin();
-
-
-                }
-            }
-        }
-        finally {
-            aStardog.shutdown();
-        }
+        //Esto es  de prueba nomas. No va.
+//        Stardog aStardog = Stardog.builder().create();
+//        try{
+//            try (AdminConnection aAdminConnection = AdminConnectionConfiguration.toEmbeddedServer().credentials("admin", "admin").connect()) {
+//                aAdminConnection.disk("testConnectionAPI").create();
+//                try (Connection aConn = ConnectionConfiguration.to("testConnectionAPI").credentials("admin", "admin").connect()) {
+//
+//                    aConn.begin();
+//
+//
+//                }
+//            }
+//        }
+//        finally {
+//            aStardog.shutdown();
+//        }
 
         return true;
     }

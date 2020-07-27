@@ -10,16 +10,21 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-    mavenCentral()
     maven { url "http://maven.stardog.com" }
+    mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+
     compile "com.complexible.stardog:server:7.1.2@pom"
     compile "com.complexible.stardog.cache:stardog-cache-core:7.1.2"
     compile "com.stardog.stark.query:stardog-stark-query-api:7.1.2"
     compile "com.stardog.stark.io:stardog-stark-io-api:7.1.2"
     compile "com.stardog.stark.query.io:stardog-stark-query-io:7.1.2"
     compile "com.complexible.stardog:client-http:7.1.2@pom"
+    compile "com.complexible.stardog:client-http:7.1.2"
+
+
 }
