@@ -6,7 +6,7 @@ import java.awt.*;
 import DB.*;
 
 public class Principal extends JFrame {
-    private GestorDB gestor = new GestorDB();
+    private GestorDB gestor = GestorDB.getInstance();
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {

@@ -44,6 +44,20 @@ import com.complexible.common.rdf.query.resultio.TextTableQueryResultWriter;
 
 public class GestorDB {
 
+    private static GestorDB single_instance = null;
+
+    private GestorDB() {
+
+    }
+
+    public static GestorDB getInstance(){
+
+        if (single_instance == null) {
+            single_instance = new GestorDB();
+        }
+        return single_instance;
+    }
+
     public String consultarDB(String promedio, String materias, String anio){
 
         Connection aConn = ConnectionConfiguration
@@ -88,7 +102,4 @@ public class GestorDB {
         return finalString;
     }
 
-    public GestorDB() {
-
-    }
 }
