@@ -29,6 +29,9 @@ import com.stardog.stark.query.io.QueryResultWriters;
 import com.stardog.stark.vocabs.RDF;
 import com.stardog.stark.query.SelectQueryResult;
 import java.io.*;
+import java.util.Date;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 /*
 imports sacados de Principal cuando movi todo lo de la DB aca
@@ -68,24 +71,43 @@ public class GestorDB {
                 .connect()
                 .as(Connection.class);
 
-        /*
-        SELECT DISTINCT ?x ?lib ?med
-        WHERE{
-          ?x a :PostulanteABecaAdmisible.
-          ?x :numeroLegajo ?lib.
-          ?x :medicionFinal ?med.
-          ?x :seInscribeAConvocatoria ?conv.
-          ?conv :anioConvocatoria ?anioConv.
-          FILTER (?anioConv = 2020).
+        //Pongo valores por defecto si no meten valores
+        if(anio.isEmpty()){
+            Date date = new Date();
+            Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Buenos Aires"));
+            cal.setTime(date);
+            Integer year = cal.get(Calendar.YEAR);
+            anio=year.toString();
         }
-        ORDER BY DESC (?med)
-         */
+        if(promedio.isEmpty()){
+            promedio="6.0";
+        }
+        if(materias.isEmpty()){
+            materias="3";
+        }
+
+        SelectQuery selectQuery = aConn.select(
+        "SELECT DISTINCT ?Alumno ?Libreta ?Puntaje \n"+
+        "WHERE{ \n"+
+          "?Alumno a :PostulanteABecaAdmisible. \n"+
+          "?Alumno :cantidadMateriasAprobadasCicloLectivoAnterior ?matAnterior. \n"+
+          "?Alumno :promedioAlumno ?promAlumno. \n"+
+          "?Alumno :numeroLegajo ?Libreta. \n"+
+          "?Alumno :medicionFinal ?Puntaje. \n"+
+          "?Alumno :seInscribeAConvocatoria ?conv. \n"+
+          "?conv :anioConvocatoria ?anioConv. \n"+
+          "FILTER (?anioConv = "+anio+"). \n"+
+          "FILTER (?promAlumno >= "+promedio+"). \n"+
+          "FILTER (?matAnterior >= "+materias+"). \n"+
+        "} \n"+
+        "ORDER BY DESC (?Puntaje)"
+        );
         //TODO Hacer bien la query, esta es de prueba
-        SelectQuery selectQuery = aConn.select("SELECT DISTINCT ?x \n" +
+        /*SelectQuery selectQuery = aConn.select("SELECT DISTINCT ?x \n" +
                 "WHERE{ \n" +
                 "\t?x a :PostulanteABeca.\n" +
                 "}");
-
+        */
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         SelectQueryResult selectQueryResult = selectQuery.execute();
 
