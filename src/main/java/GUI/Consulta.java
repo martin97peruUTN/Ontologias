@@ -77,12 +77,9 @@ public class Consulta extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO ver si ingresaron numeros
-               // ventana.getGestor().consultarDB(promedioTxt.getText(),materiasTxt.getText(),anioTxt.getText());
-                //Aca se podria mandar el resultado de la consulta mediante new ListaAlumnos(ventana, resultadoConsulta)
-                //No lo hice todavia porque no se que devuelve la BD ni que tendriamos que usar
+                String queryResult = ventana.getGestor().consultarDB(promedioTxt.getText(),materiasTxt.getText(),anioTxt.getText());
 
-                //Otra opcion es que el mismo gestor tenga una variable para guardar el resultado
-                ventana.setContentPane(new ListaAlumnos(ventana));
+                ventana.setContentPane(new ListaAlumnos(ventana, queryResult));
                 ventana.pack();
             }
         });

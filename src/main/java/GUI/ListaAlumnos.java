@@ -13,7 +13,7 @@ public class ListaAlumnos extends JPanel {
 
     private Principal ventana;
 
-    public ListaAlumnos(Principal ventana2) {
+    public ListaAlumnos(Principal ventana2, String queryResult) {
         this.ventana=ventana2;
         ventana.setContentPane(this);
         ventana.setPreferredSize(new Dimension(600, 600));
