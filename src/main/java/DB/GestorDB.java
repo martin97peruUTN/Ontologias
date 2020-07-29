@@ -110,6 +110,7 @@ public class GestorDB {
                 "}");
         */
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        selectQuery.limit(10);
         SelectQueryResult selectQueryResult = selectQuery.execute();
 
         try{
@@ -119,6 +120,8 @@ public class GestorDB {
         }
 
         String finalString = new String(stream.toByteArray()).replaceAll("http://www.w3.org/2001/XMLSchema#float","");
+        finalString.replaceAll("\\^\\^\\<\\>","");
+
         //TODO Sacar este System.out
         System.out.println(finalString);
 

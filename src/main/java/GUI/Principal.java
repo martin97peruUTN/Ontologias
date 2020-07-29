@@ -18,7 +18,7 @@ public class Principal extends JFrame {
 
     public Principal() {
         this.setTitle("Ontologias");
-        this.setPreferredSize(new Dimension(600, 370));
+        this.setPreferredSize(new Dimension(440, 370));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setContentPane(new Consulta(this));

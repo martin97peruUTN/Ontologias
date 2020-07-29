@@ -17,7 +17,7 @@ public class Consulta extends JPanel {
     public Consulta(Principal ventana2) {
         this.ventana=ventana2;
         ventana.setContentPane(this);
-        ventana.setPreferredSize(new Dimension(600, 370));
+        ventana.setPreferredSize(new Dimension(440, 370));
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setBackground(new Color(230, 230, 250));
         this.setLayout(null);
@@ -64,7 +64,7 @@ public class Consulta extends JPanel {
 
         JButton btnContinuar = new JButton("Continuar");
         btnContinuar.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
-        btnContinuar.setBounds(465, 280, 100, 30);
+        btnContinuar.setBounds(300, 280, 100, 30);
         this.add(btnContinuar);
 
         btnSalir.addActionListener(new ActionListener() {

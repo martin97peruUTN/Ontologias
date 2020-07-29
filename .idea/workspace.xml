@@ -22,6 +22,9 @@
     <list default="true" id="86d66ddf-7a2d-48fa-bbd3-680013cac038" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DB/GestorDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DB/GestorDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Consulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Consulta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ListaAlumnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ListaAlumnos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Principal.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -63,10 +66,12 @@
     <session id="775138672">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.104" value="1" />
           <entry key="project.open.time.29" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.75" value="1" />
+          <entry key="project.open.time.88" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -81,14 +86,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1513" />
-          <entry key="txt" value="577" />
+          <entry key="java" value="1632" />
+          <entry key="txt" value="642" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1513" />
-          <entry key="PLAIN_TEXT" value="577" />
+          <entry key="JAVA" value="1632" />
+          <entry key="PLAIN_TEXT" value="642" />
         </counts>
       </usages-collector>
     </session>
@@ -98,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GUI/Principal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+            <state relative-caret-position="187">
+              <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,8 +115,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/DB/GestorDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="120" column="73" selection-start-line="120" selection-start-column="73" selection-end-line="120" selection-end-column="73" />
+            <state relative-caret-position="205">
+              <caret line="112" column="30" lean-forward="true" selection-start-line="112" selection-start-column="30" selection-end-line="112" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GUI/Consulta.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+            <state relative-caret-position="119">
+              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -131,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GUI/ListaAlumnos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+            <state relative-caret-position="153">
+              <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -534,7 +539,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -581,6 +585,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -669,7 +674,9 @@
       <updated>1595355164098</updated>
       <workItem from="1595446112937" duration="4457000" />
       <workItem from="1595908222638" duration="4844000" />
-      <workItem from="1595956049742" duration="12744000" />
+      <workItem from="1595956049742" duration="12849000" />
+      <workItem from="1596036653067" duration="2090000" />
+      <workItem from="1596046542538" duration="1770000" />
     </task>
     <task id="LOCAL-00001" summary="Se agrego la dependencia que tenia error.">
       <created>1595355792943</created>
@@ -713,17 +720,24 @@
       <option name="project" value="LOCAL" />
       <updated>1595982518569</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Saco la URL de los numeros de la tabla, faltan los ^^&lt;&gt;">
+      <created>1595988624671</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1595988624671</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22045000" />
+    <option name="totallyTimeSpent" value="26010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25379938" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26139817" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -789,7 +803,8 @@
     <MESSAGE value="Agregue un Label a ListaAlumnos que seguramente despues saque para mostrar el resultado. En le gestor termine bien la consulta" />
     <MESSAGE value="Muestro la tabla en formato HTML" />
     <MESSAGE value="Cambielas dimensiones de la segunda ventana nomas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambielas dimensiones de la segunda ventana nomas" />
+    <MESSAGE value="Saco la URL de los numeros de la tabla, faltan los ^^&lt;&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saco la URL de los numeros de la tabla, faltan los ^^&lt;&gt;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595529845192">
@@ -830,10 +845,17 @@
     <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1595529814916" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/Consulta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/GUI/Principal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        <state relative-caret-position="187">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -842,22 +864,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/GUI/ListaAlumnos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/Consulta.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DB/GestorDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="120" column="73" selection-start-line="120" selection-start-column="73" selection-end-line="120" selection-end-column="73" />
+        <state relative-caret-position="205">
+          <caret line="112" column="30" lean-forward="true" selection-start-line="112" selection-start-column="30" selection-end-line="112" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

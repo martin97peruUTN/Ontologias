@@ -16,19 +16,20 @@ public class ListaAlumnos extends JPanel {
     public ListaAlumnos(Principal ventana2, String queryResult) {
         this.ventana=ventana2;
         ventana.setContentPane(this);
-        ventana.setPreferredSize(new Dimension(500, 600));
+        ventana.setPreferredSize(new Dimension(250, 500));
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setBackground(new Color(230, 230, 250));
         this.setLayout(null);
 
         JLabel resultadoLbl = new JLabel(queryResult);
-        resultadoLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 12));
-        resultadoLbl.setBounds(20, 20, 500, 300);
+        resultadoLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
+        resultadoLbl.setBounds(25, 20,200,400);
+        resultadoLbl.setVerticalAlignment(JLabel.TOP);
         this.add(resultadoLbl);
 
         JButton volverBtn = new JButton("Volver");
         volverBtn.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 14));
-        volverBtn.setBounds(20, 515, 80, 30);
+        volverBtn.setBounds(20, 415, 80, 30);
         this.add(volverBtn);
 
         volverBtn.addActionListener(new ActionListener() {
