@@ -21,9 +21,9 @@ public class ListaAlumnos extends JPanel {
         this.setBackground(new Color(230, 230, 250));
         this.setLayout(null);
 
-        JLabel resultadoLbl = new JLabel("<html>"+queryResult+"</html>");
+        JLabel resultadoLbl = new JLabel(queryResult);
         resultadoLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 12));
-        resultadoLbl.setBounds(20, 20, 600, 500);
+        resultadoLbl.setBounds(20, 20, 500, 400);
         this.add(resultadoLbl);
 
         JButton volverBtn = new JButton("Volver");

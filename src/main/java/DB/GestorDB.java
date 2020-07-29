@@ -32,6 +32,7 @@ import java.io.*;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.TimeZone;
+import com.complexible.common.rdf.query.resultio.HTMLQueryResultWriter;
 
 /*
 imports sacados de Principal cuando movi todo lo de la DB aca
@@ -87,7 +88,7 @@ public class GestorDB {
         }
 
         SelectQuery selectQuery = aConn.select(
-        "SELECT DISTINCT ?Alumno ?Libreta ?Puntaje \n"+
+        "SELECT DISTINCT ?Libreta ?Puntaje \n"+
         "WHERE{ \n"+
           "?Alumno a :PostulanteABecaAdmisible. \n"+
           "?Alumno :cantidadMateriasAprobadasCicloLectivoAnterior ?matAnterior. \n"+
@@ -112,7 +113,7 @@ public class GestorDB {
         SelectQueryResult selectQueryResult = selectQuery.execute();
 
         try{
-            QueryResultWriters.write(selectQueryResult, stream, TextTableQueryResultWriter.FORMAT);
+            QueryResultWriters.write(selectQueryResult, stream, HTMLQueryResultWriter.FORMAT);
         } catch (IOException e) {
             System.out.println("ERROR");
         }
