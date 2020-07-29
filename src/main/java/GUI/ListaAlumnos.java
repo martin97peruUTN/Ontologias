@@ -16,14 +16,14 @@ public class ListaAlumnos extends JPanel {
     public ListaAlumnos(Principal ventana2, String queryResult) {
         this.ventana=ventana2;
         ventana.setContentPane(this);
-        ventana.setPreferredSize(new Dimension(250, 500));
+        ventana.setPreferredSize(new Dimension(200, 500));
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
-        this.setBackground(new Color(230, 230, 250));
+        this.setBackground(new Color(201,236,249));
         this.setLayout(null);
 
         JLabel resultadoLbl = new JLabel(queryResult);
         resultadoLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
-        resultadoLbl.setBounds(25, 20,200,400);
+        resultadoLbl.setBounds(20, 20,200,400);
         resultadoLbl.setVerticalAlignment(JLabel.TOP);
         this.add(resultadoLbl);
 

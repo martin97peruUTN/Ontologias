@@ -12,14 +12,12 @@ public class Consulta extends JPanel {
 
     private Principal ventana;
 
-    //TODO en el TP pusimos que iba a tener un LogIn, no se si tenemos que hacerlo jaja
-
     public Consulta(Principal ventana2) {
         this.ventana=ventana2;
         ventana.setContentPane(this);
         ventana.setPreferredSize(new Dimension(440, 370));
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
-        this.setBackground(new Color(230, 230, 250));
+        this.setBackground(new Color(201,236,249));
         this.setLayout(null);
 
         JLabel tituloLbl = new JLabel("Ontologias");

@@ -34,18 +34,6 @@ import java.util.Calendar;
 import java.util.TimeZone;
 import com.complexible.common.rdf.query.resultio.HTMLQueryResultWriter;
 
-/*
-imports sacados de Principal cuando movi todo lo de la DB aca
-import com.complexible.stardog.Stardog;
-import com.complexible.stardog.api.*;
-import com.complexible.stardog.api.admin.AdminConnection;
-import com.complexible.stardog.api.admin.AdminConnectionConfiguration;
-import com.stardog.stark.query.SelectQueryResult;
-import com.stardog.stark.query.io.QueryResultFormats;
-import com.stardog.stark.query.io.QueryResultWriters;
-import com.complexible.common.rdf.query.resultio.TextTableQueryResultWriter;
- */
-
 public class GestorDB {
 
     private static GestorDB single_instance = null;
@@ -103,12 +91,7 @@ public class GestorDB {
         "} \n"+
         "ORDER BY DESC (?Puntaje)"
         );
-        //TODO Hacer bien la query, esta es de prueba
-        /*SelectQuery selectQuery = aConn.select("SELECT DISTINCT ?x \n" +
-                "WHERE{ \n" +
-                "\t?x a :PostulanteABeca.\n" +
-                "}");
-        */
+
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         selectQuery.limit(10);
         SelectQueryResult selectQueryResult = selectQuery.execute();
@@ -119,8 +102,7 @@ public class GestorDB {
             System.out.println("ERROR");
         }
 
-        String finalString = new String(stream.toByteArray()).replaceAll("http://www.w3.org/2001/XMLSchema#float","");
-        finalString.replaceAll("\\^\\^\\<\\>","");
+        String finalString = new String(stream.toByteArray()).replaceAll("\\^\\^&lt;http://www.w3.org/2001/XMLSchema#float&gt;","");
 
         //TODO Sacar este System.out
         System.out.println(finalString);
