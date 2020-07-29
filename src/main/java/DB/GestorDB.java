@@ -118,8 +118,8 @@ public class GestorDB {
             System.out.println("ERROR");
         }
 
+        String finalString = new String(stream.toByteArray()).replaceAll("http://www.w3.org/2001/XMLSchema#float","");
         //TODO Sacar este System.out
-        String finalString = new String(stream.toByteArray());
         System.out.println(finalString);
 
         return finalString;
