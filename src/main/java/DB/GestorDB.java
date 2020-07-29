@@ -92,13 +92,13 @@ public class GestorDB {
         "WHERE{ \n"+
           "?Alumno a :PostulanteABecaAdmisible. \n"+
           "?Alumno :cantidadMateriasAprobadasCicloLectivoAnterior ?matAnterior. \n"+
-          "?Alumno :promedioAlumno ?promAlumno. \n"+
+          "?Alumno :promedioAlumno ?Promedio. \n"+
           "?Alumno :numeroLegajo ?Libreta. \n"+
           "?Alumno :medicionFinal ?Puntaje. \n"+
           "?Alumno :seInscribeAConvocatoria ?conv. \n"+
           "?conv :anioConvocatoria ?anioConv. \n"+
           "FILTER (?anioConv = "+anio+"). \n"+
-          "FILTER (?promAlumno >= "+promedio+"). \n"+
+          "FILTER (?Promedio >= "+promedio+"). \n"+
           "FILTER (?matAnterior >= "+materias+"). \n"+
         "} \n"+
         "ORDER BY DESC (?Puntaje)"
