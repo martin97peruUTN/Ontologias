@@ -37,31 +37,36 @@ import com.complexible.common.rdf.query.resultio.HTMLQueryResultWriter;
 public class GestorDB {
 
     private static GestorDB single_instance = null;
+    private Connection aConn;
 
     private GestorDB() {
+
+        //Conexion a la base de datos que corre en localhost
+        aConn = ConnectionConfiguration
+            .to("")
+            .server("http://localhost:5820")
+            .database("TP_OntologiasEjecutado")
+            .credentials("admin", "admin")
+            .connect()
+            .as(Connection.class);
 
     }
 
     public static GestorDB getInstance(){
 
+        //Patron singleton para que exista un unico GestorBD.
         if (single_instance == null) {
             single_instance = new GestorDB();
         }
+
         return single_instance;
     }
 
     public String consultarDB(String promedio, String materias, String anio){
 
-        Connection aConn = ConnectionConfiguration
-                .to("")
-                .server("http://localhost:5820")
-                .database("TP_OntologiasEjecutado")
-                .credentials("admin", "admin")
-                .connect()
-                .as(Connection.class);
-
-        //Pongo valores por defecto si no meten valores
+        //Valores por defecto si no se insertan valores
         if(anio.isEmpty()){
+            //Se muestran los postulantes del anio actual
             Date date = new Date();
             Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Buenos Aires"));
             cal.setTime(date);
@@ -69,19 +74,22 @@ public class GestorDB {
             anio=year.toString();
         }
         if(promedio.isEmpty()){
+            //Promedio minimo por defecto es 6.
             promedio="6.0";
         }
         if(materias.isEmpty()){
+            //Materias aprobadas el anio anterior por defecto es 3.
             materias="3";
         }
 
+        //Se crea el string de la consulta a la base de datos.
         SelectQuery selectQuery = aConn.select(
-        "SELECT DISTINCT ?Libreta ?Puntaje \n"+
+        "SELECT DISTINCT ?LibretaUniversitaria ?Puntaje \n"+
         "WHERE{ \n"+
           "?Alumno a :PostulanteABecaAdmisible. \n"+
           "?Alumno :cantidadMateriasAprobadasCicloLectivoAnterior ?matAnterior. \n"+
           "?Alumno :promedioAlumno ?Promedio. \n"+
-          "?Alumno :numeroLegajo ?Libreta. \n"+
+          "?Alumno :numeroLegajo ?LibretaUniversitaria. \n"+
           "?Alumno :medicionFinal ?Puntaje. \n"+
           "?Alumno :seInscribeAConvocatoria ?conv. \n"+
           "?conv :anioConvocatoria ?anioConv. \n"+
@@ -92,20 +100,23 @@ public class GestorDB {
         "ORDER BY DESC (?Puntaje)"
         );
 
+        //Se crea esta varible porque la mejor forma de mostrar los resultados de la consulta es con QueryResultWriters.write que necesita un ByteArrayOutputStream como parametro.
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        selectQuery.limit(10);
+
+        //Se ejecuta la consulta a la base de datos.
         SelectQueryResult selectQueryResult = selectQuery.execute();
 
+        //Aqui escribimos el resultado de la consulta en la varible ByteArrayOutputStream y con un formato de tabla con codigo HTML
         try{
+            //este metodo viene con las librerias de stardog
             QueryResultWriters.write(selectQueryResult, stream, HTMLQueryResultWriter.FORMAT);
         } catch (IOException e) {
             System.out.println("ERROR");
         }
 
+        //Se crea el String final a partir del ByteArrayOutputStream que se mostrara en el label del ranking de alumno. A dicho string le aplicamos el replaceAll para que quede "lindo" para el usuario y no muestre to do el IRI.
+        //Lo mas dificil fue sacar los ^ y los > ya que HTML los considera caracteres especiales.
         String finalString = new String(stream.toByteArray()).replaceAll("\\^\\^&lt;http://www.w3.org/2001/XMLSchema#float&gt;","");
-
-        //TODO Sacar este System.out
-        System.out.println(finalString);
 
         return finalString;
     }

@@ -17,13 +17,13 @@ public class Principal extends JFrame {
     }
 
     public Principal() {
-        this.setTitle("Ontologias");
+        //Se crea el frame principal y se setea la primer pantalla de consulta
+        this.setTitle("Ontolog\u00edas");
         this.setPreferredSize(new Dimension(440, 370));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setContentPane(new Consulta(this));
         this.pack();
-
     }
 
     public GestorDB getGestor() {

@@ -13,6 +13,11 @@ public class Consulta extends JPanel {
     private Principal ventana;
 
     public Consulta(Principal ventana2) {
+        //estos dos strings son para escribir enies y acentos.
+        String caracterEnie = "\u00f1";
+        String acentoI = "\u00ed";
+
+        //se crea la pantalla de la consulta
         this.ventana=ventana2;
         ventana.setContentPane(this);
         ventana.setPreferredSize(new Dimension(440, 370));
@@ -20,12 +25,12 @@ public class Consulta extends JPanel {
         this.setBackground(new Color(201,236,249));
         this.setLayout(null);
 
-        JLabel tituloLbl = new JLabel("Ontologias");
+        JLabel tituloLbl = new JLabel("Ontolog"+acentoI+"as");
         tituloLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 20));
         tituloLbl.setBounds(20, 0, 437, 62);
         this.add(tituloLbl);
 
-        JLabel promedioLbl = new JLabel("Promedio minimo");
+        JLabel promedioLbl = new JLabel("Promedio m"+acentoI+"nimo");
         promedioLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
         promedioLbl.setBounds(20, 50, 380, 45);
         this.add(promedioLbl);
@@ -35,7 +40,7 @@ public class Consulta extends JPanel {
         promedioTxt.setBounds(20,85,380,25);
         this.add(promedioTxt);
 
-        JLabel materiasLbl = new JLabel("Minimo de materias cursadas el año anterior");
+        JLabel materiasLbl = new JLabel("M"+acentoI+"nimo de materias cursadas el a"+caracterEnie+"o anterior");
         materiasLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
         materiasLbl.setBounds(20, 120, 380, 45);
         this.add(materiasLbl);
@@ -45,7 +50,7 @@ public class Consulta extends JPanel {
         materiasTxt.setBounds(20,155,380,25);
         this.add(materiasTxt);
 
-        JLabel anioLbl = new JLabel("Año de la pasantia");
+        JLabel anioLbl = new JLabel("A"+caracterEnie+"o de la pasant"+acentoI+"a");
         anioLbl.setFont(new Font("Segoe UI Symbol", Font.BOLD, 14));
         anioLbl.setBounds(20, 190, 380, 45);
         this.add(anioLbl);
@@ -74,13 +79,54 @@ public class Consulta extends JPanel {
         btnContinuar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO ver si ingresaron numeros
-                String queryResult = ventana.getGestor().consultarDB(promedioTxt.getText(),materiasTxt.getText(),anioTxt.getText());
+                //ver si ingresaron numeros
+                if(validarStringIngresados(promedioTxt.getText(), anioTxt.getText(), materiasTxt.getText())){
+                    //Se llama al metodo para que realice la consulta en la base de datos y la devuelve en un string
+                    String queryResult = ventana.getGestor().consultarDB(promedioTxt.getText(),materiasTxt.getText(),anioTxt.getText());
 
-                ventana.setContentPane(new ListaAlumnos(ventana, queryResult));
-                ventana.pack();
+                    //Llamamos una nueva pantalla para mostrar los resultados, que se envian en el string queryResult.
+                    ventana.setContentPane(new ListaAlumnos(ventana, queryResult));
+                    ventana.pack();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Valores no v\u00e1lidos.");
+                }
+
             }
         });
     }
+
+        private boolean validarStringIngresados(String promedio, String anio, String materias){
+
+             boolean datosValidos = true;
+
+             if (!promedio.isEmpty()){
+                 try{
+                     Float.parseFloat(promedio);
+                 }
+                 catch (Exception e){
+                     datosValidos = false;
+                 }
+             }
+
+             if(!anio.isEmpty()){
+                try{
+                    Integer.parseInt(anio);
+                }
+                catch (Exception e){
+                    datosValidos = false;
+                  }
+                }
+
+             if(!materias.isEmpty()){
+                 try{
+                   Integer.parseInt(materias);
+                 }
+                 catch (Exception e){
+                     datosValidos = false;
+                 }
+             }
+             return datosValidos;
+        }
 
 }
